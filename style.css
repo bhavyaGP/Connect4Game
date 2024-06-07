@@ -1,76 +1,45 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial', 'Helvetica', sans-serif;
     text-align: center;
-    background-color: black;
+    background: #212121;
     color: white;
+    margin: 0;
+    padding: 20px;
 }
-
 
 #board {
     height: 540px;
     width: 630px;
     background-color: #212121;
     border: 10px solid white;
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .tile {
     height: 70px;
     width: 70px;
     margin: 5px;
-
-    /* Circle */
-    background-color: white;
+    background: radial-gradient(circle, white, #ddd);
     border-radius: 50%;
     border: 5px solid navy;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
 }
 
-.red-tile{
-    background-color: red;
+.tile:hover {
+    transform: scale(1.1);
 }
 
-.yellow-tile{
-    background-color: yellow;
+.red-tile {
+    background: radial-gradient(circle, red, darkred);
+    border: 5px solid darkred;
 }
 
-@keyframes winning-effect {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-.winning-tile {
-    animation: winning-effect 0.5s infinite;
-}
-
-/* Overlay for winning message */
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: none; /* Initially hidden */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-#overlay.show {
-    display: flex;
-}
-
-#winner-message {
-    font-size: 3em;
-    color: white;
-    text-align: center;
-    animation: cheer 1s infinite;
-}
-
-@keyframes cheer {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+.yellow-tile {
+    background: radial-gradient(circle, yellow, goldenrod);
+    border: 5px solid goldenrod;
 }
